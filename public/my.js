@@ -2,7 +2,7 @@ $(function() {
   "use strict";
 
   function getItemById(price, view, id) {
-    return $.getJSON("./data/"+id+".json", function (data) {
+    return $.getJSON("../data/"+id+".json", function (data) {
       $.each(data, function(i, item) {
         var classes = '';
         if (i%2 !== 0) {
