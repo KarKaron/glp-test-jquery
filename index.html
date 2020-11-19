@@ -1,0 +1,401 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>GLP Диспетчерская</title>
+<link href="./img/favicon.ico" rel="icon" type="image/x-icon">
+<link href="./img/favicon.ico" rel="shortcut icon" type="image/x-icon">
+<link href="index.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+  <header class="header">
+    <div class="header__menu">
+      <a href="#">
+        <img class="header__menu-bar" src="./img/bar.svg" alt="Меню" />
+      </a>      
+      <a href="/" title="На главную">
+        <img class="header__menu-logo" src="./img/logo.svg" alt="Логотип" />
+      </a>
+      <h2>Диспетчерская</h2>
+    </div>
+    <button class="btn-yellow">Администратор 1 <img src="./img/shevron.svg" alt="Пользователь"></button>
+  </header>
+  <div class="sidebar">
+    <ul>
+      <li>
+        <img src="./img/setting.svg" alt="Логотип" />
+      </li>
+    </ul>
+  </div>
+  <main class="main">
+    <h1>GLP</h1>
+    <div class="main__basic">
+      <nav>
+        <div>Данные</div>
+        <div>Документы</div>
+        <div>Контакты</div>
+        <div class="active">Тарифы</div>
+        <div>Арбитраж</div>
+      </nav>
+      <section>
+        <h6>Цены</h6>
+        <div class="button-block" id="price">
+          <button class="btn active" id="client" data-block="price">ДЛЯ КЛИЕНТА</button>
+          <button class="btn" id="driver" data-block="price">ДЛЯ ВОДИТЕЛЯ</button>
+        </div>
+      </section>
+      <section>
+        <h6>Вид расчета</h6>
+        <div class="button-block" id="view">
+          <button class="btn active" id="stavka" data-block="view">ПО СТАВКЕ</button>
+          <button class="btn" id="hour" data-block="view">ПО ЧАСАМ</button>
+          <button class="btn" id="point" data-block="view">ПО ТОЧКАМ</button>
+          <button class="btn" id="speed" data-block="view">КМ + МИН</button>
+          <button class="btn" id="loader" data-block="view">ГРУЗЧИКИ</button>
+        </div>
+      </section>
+      <section>
+        <h6>Тип будки</h6>
+        <div class="button-block" id="type">
+          <button class="btn active" id="tent" data-block="type">ТЕНТ</button>
+          <button class="btn" id="prom" data-block="type">ПРОМТОВАРНЫЕ</button>
+          <button class="btn" id="izoterma" data-block="type">ИЗОТЕРМА</button>
+          <button class="btn" id="ref" data-block="type">РЕФ</button>
+        </div>
+      </section>
+      <section class="table-block">
+        <h6>Оптимальные цены</h6>
+        <table>
+          <thead>
+            <tr>
+              <th rowspan="2">Тоннаж ТС</th>
+              <th rowspan="2" class="table-td-whide">Тип ТС</th>
+              <th rowspan="2">Мин-но / max<br>часов в ставке</th>
+              <th rowspan="2">Подача ТС</th>
+              <th rowspan="2">Экспедир.</th>
+              <th rowspan="2">Тариф по<br>ставке</th>
+              <th rowspan="2">Переработка<br>за час</th>
+              <th rowspan="2">Гидроборт</th>
+              <th rowspan="2">Въезд ТТК,<br>МОЖД</th>
+              <th colspan="2" class="table-td-row">Километраж за МКАД</th>
+              <th rowspan="2">Ручная<br>разгрузка</th>
+              <th rowspan="2">Перегруз</th>
+              <th rowspan="2">Платная<br>парковка</th>
+              <th rowspan="2">Инкасация</th>
+              <th rowspan="2">Водитель-<br>Грузчик за час</th>
+              <th rowspan="2">Водитель-<br>Грузчик время</th>
+            </tr>
+            <tr>
+              <th class="table-td-row">Границы</th>
+              <th class="table-td-row">Стоимость</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- <tr>
+              <td><strong>1 т</strong></td>
+              <td class="table-td-whide">Тент</td>
+              <td>8:00</td>
+              <td>1</td>
+              <td>1</td>
+              <td>4900</td>
+              <td>490</td>
+              <td>490</td>
+              <td></td>
+              <td>0</td>
+              <td>18</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr class="striple">
+              <td><strong>1,5 т</strong></td>
+              <td class="table-td-whide">Тент</td>
+              <td>8:00</td>
+              <td>1</td>
+              <td>1</td>
+              <td>5500</td>
+              <td>550</td>
+              <td>550</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td><strong>3 т</strong></td>
+              <td class="table-td-whide">Тент</td>
+              <td>8:00</td>
+              <td>1</td>
+              <td>1</td>
+              <td>7800</td>
+              <td>780</td>
+              <td>780</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr class="striple">
+              <td><strong>5 т</strong></td>
+              <td class="table-td-whide">Тент</td>
+              <td>8:00</td>
+              <td>1</td>
+              <td>1</td>
+              <td>9500</td>
+              <td>950</td>
+              <td>950</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td><strong>7 т</strong></td>
+              <td class="table-td-whide">Тент</td>
+              <td>8:00</td>
+              <td>1</td>
+              <td>1</td>
+              <td>10000</td>
+              <td>1000</td>
+              <td>1000</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr class="striple">
+              <td><strong>10 т</strong></td>
+              <td class="table-td-whide">Тент</td>
+              <td>8:00</td>
+              <td>1</td>
+              <td>1</td>
+              <td>12000</td>
+              <td>1200</td>
+              <td>1200</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td><strong>20 т</strong></td>
+              <td class="table-td-whide">Тент</td>
+              <td>8:00</td>
+              <td>1</td>
+              <td>1</td>
+              <td>14000</td>
+              <td>1400</td>
+              <td>1400</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr> -->
+          </tbody>
+        </table>
+      </section>
+      <section class="table-block">
+        <h6>Минимально возможные цены</h6>
+        <table>
+          <thead>
+            <tr>
+              <th rowspan="2">Тоннаж ТС</th>
+              <th rowspan="2" class="table-td-whide">Тип ТС</th>
+              <th rowspan="2">Мин-но / max<br>часов в ставке</th>
+              <th rowspan="2">Подача ТС</th>
+              <th rowspan="2">Экспедир.</th>
+              <th rowspan="2">Тариф по<br>ставке</th>
+              <th rowspan="2">Переработка<br>за час</th>
+              <th rowspan="2">Гидроборт</th>
+              <th rowspan="2">Въезд ТТК,<br>МОЖД</th>
+              <th colspan="2" class="table-td-row">Километраж за МКАД</th>
+              <th rowspan="2">Ручная<br>разгрузка</th>
+              <th rowspan="2">Перегруз</th>
+              <th rowspan="2">Платная<br>парковка</th>
+              <th rowspan="2">Инкасация</th>
+              <th rowspan="2">Водитель-<br>Грузчик за час</th>
+              <th rowspan="2">Водитель-<br>Грузчик время</th>
+            </tr>
+            <tr>
+              <th class="table-td-row">Границы</th>
+              <th class="table-td-row">Стоимость</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- <tr>
+              <td><strong>1 т</strong></td>
+              <td class="table-td-whide">Тент</td>
+              <td>8:00</td>
+              <td>1</td>
+              <td>1</td>
+              <td>4900</td>
+              <td>490</td>
+              <td>490</td>
+              <td></td>
+              <td>0</td>
+              <td>18</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr class="striple">
+              <td><strong>1,5 т</strong></td>
+              <td class="table-td-whide">Тент</td>
+              <td>8:00</td>
+              <td>1</td>
+              <td>1</td>
+              <td>5500</td>
+              <td>550</td>
+              <td>550</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td><strong>3 т</strong></td>
+              <td class="table-td-whide">Тент</td>
+              <td>8:00</td>
+              <td>1</td>
+              <td>1</td>
+              <td>7800</td>
+              <td>780</td>
+              <td>780</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr class="striple">
+              <td><strong>5 т</strong></td>
+              <td class="table-td-whide">Тент</td>
+              <td>8:00</td>
+              <td>1</td>
+              <td>1</td>
+              <td>9500</td>
+              <td>950</td>
+              <td>950</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td><strong>7 т</strong></td>
+              <td class="table-td-whide">Тент</td>
+              <td>8:00</td>
+              <td>1</td>
+              <td>1</td>
+              <td>10000</td>
+              <td>1000</td>
+              <td>1000</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr class="striple">
+              <td><strong>10 т</strong></td>
+              <td class="table-td-whide">Тент</td>
+              <td>8:00</td>
+              <td>1</td>
+              <td>1</td>
+              <td>12000</td>
+              <td>1200</td>
+              <td>1200</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td><strong>20 т</strong></td>
+              <td class="table-td-whide">Тент</td>
+              <td>8:00</td>
+              <td>1</td>
+              <td>1</td>
+              <td>14000</td>
+              <td>1400</td>
+              <td>1400</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr> -->
+          </tbody>
+        </table>
+      </section>
+      <hr/>
+      <button class="btn-yellow-save">Сохранить изменения</button>
+    </div>
+  </main>
+  <script src="jquery-3.3.1.min.js"></script>
+  <script src="my.js"></script>
+</body>
+</html>
